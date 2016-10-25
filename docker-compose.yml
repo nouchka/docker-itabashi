@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  itabashi:
+    build: .
+    volumes:
+      - /home/jah/Desktop/Scotland:/var/www/html/input
+      - ./output:/var/www/html/output
+      - ./index.php:/var/www/html/index.php
+      - ./generate.php:/var/www/html/generate.php
+    ports:
+      - "8101:80"
