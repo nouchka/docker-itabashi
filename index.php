@@ -7,18 +7,19 @@
 <body>
 <table>
 <?php
-if ($handle = opendir('input')) {
-    while (false !== ($entry = readdir($handle))) {
-        if ($entry != "." && $entry != ".." && $entry != ".svn" && $entry != "notes.txt") {
+$path = "input/";
+$blacklist = array();
+$files = scandir($path);
+foreach ($files as $entry) {
+	if ($entry == "." || $entry == ".." || $entry == ".svn" || $entry == "notes.txt") continue;
+	$file =  $path.$entry;
 ?>
 <tr>
-	<td><img src="input/<?php echo $entry;?>" name="<?php echo str_replace('.jpg','',$entry);?>" class="box"/></td>
+	<td><img src="<?php echo $file;?>" name="<?php echo str_replace('.jpg','',basename($file));?>" class="box"/></td>
 	<td><p class="position"></p><input type="button" name="end" value="finish" class="end"/></td>
 </tr>
+<tr><td colspan="2"><hr/></td></tr>
 <?php
-        }
-    }
-    closedir($handle);
 }
 ?>
 </table>
