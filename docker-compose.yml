@@ -2,11 +2,9 @@ version: '2'
 
 services:
   itabashi:
-    build: .
+    image: nouchka/itabashi
     volumes:
-      - /home/jah/Desktop/input:/var/www/html/input
-      - /home/jah/Desktop/output:/var/www/html/output
-      - ./index.php:/var/www/html/index.php
-      - ./generate.php:/var/www/html/generate.php
+      - $HOME/Documents/scans:/var/www/html/input
+      - $HOME/Documents/scans/output:/var/www/html/output
     ports:
       - "8101:80"
