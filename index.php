@@ -11,7 +11,7 @@ $path = "input/";
 $blacklist = array();
 $files = scandir($path);
 foreach ($files as $entry) {
-	if ($entry == "." || $entry == ".." || $entry == ".svn" || $entry == "notes.txt") continue;
+	if ($entry == "." || $entry == ".." || $entry == ".svn" || $entry == "notes.txt" || is_dir($path.$entry)) continue;
 	$file =  $path.$entry;
 ?>
 <tr>
