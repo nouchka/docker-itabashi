@@ -1,4 +1,4 @@
-FROM php:7-apache
+FROM nouchka/symfony
 RUN apt-get update \
     && apt-get -y install imagemagick
 
